@@ -1,6 +1,7 @@
 package lk.ijse.hostel.util;
 
 
+import lk.ijse.hostel.entity.Reservation;
 import lk.ijse.hostel.entity.Room;
 import lk.ijse.hostel.entity.Student;
 import org.hibernate.Session;
@@ -20,7 +21,7 @@ public class FactoryConfiguration {
         serviceRegistryBuilder.loadProperties("hibernate.properties");
         StandardServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
         MetadataSources metadataSources=new MetadataSources(serviceRegistry);
-        metadataSources.addAnnotatedClass(Room.class).addAnnotatedClass(Student.class);
+        metadataSources.addAnnotatedClass(Room.class).addAnnotatedClass(Student.class).addAnnotatedClass(Reservation.class);
         Metadata build = metadataSources.getMetadataBuilder().build();
 
         sessionFactory = build.getSessionFactoryBuilder().build();
