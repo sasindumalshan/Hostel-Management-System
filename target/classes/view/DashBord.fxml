@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="1030.0" prefWidth="1920.0" stylesheets="@../assets/style/DashBord.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.DashBordController">
+   <children>
+      <ImageView fitHeight="1027.0" fitWidth="1922.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/image/backGrundImage/modern-residential-building.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutY="632.0" prefHeight="398.0" prefWidth="1922.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton layoutX="183.0" layoutY="124.0" prefHeight="117.0" prefWidth="115.0" styleClass="dashBord-button">
+               <graphic>
+                  <GridPane prefHeight="114.0" prefWidth="105.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/image/backGrundImage/icon/icons8-manager-100.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="12.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="427.0" layoutY="124.0" prefHeight="117.0" prefWidth="115.0" styleClass="dashBord-button">
+               <graphic>
+                  <GridPane prefHeight="114.0" prefWidth="105.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="62.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/image/backGrundImage/icon/icons8-bedroom-90.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </graphic>
+            </JFXButton>
+            <Text fill="#3c3d3f" layoutX="183.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Employee" />
+            <Text fill="#3c3d3f" layoutX="444.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Rooms" />
+            <JFXButton layoutX="679.0" layoutY="124.0" prefHeight="117.0" prefWidth="115.0" styleClass="dashBord-button">
+               <graphic>
+                  <GridPane prefHeight="114.0" prefWidth="105.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/image/backGrundImage/icon/icons8-more-details-96.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="12.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </graphic>
+            </JFXButton>
+            <Text fill="#3c3d3f" layoutX="628.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Resuvation Details" />
+            <Text fill="#3c3d3f" layoutX="1728.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Time-txt" text="22" />
+            <Text fill="#3c3d3f" layoutX="1730.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Time-txt" text="19" />
+            <Text fill="#3c3d3f" layoutX="1697.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Thu,30 March" />
+            <Text fill="#64779e" layoutX="1778.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Admin" />
+            <Circle fill="#1fff83" layoutX="1749.0" layoutY="368.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text fill="#3c3d3f" layoutX="990.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="All Rooms" />
+            <Text fill="#3c3d3f" layoutX="990.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="All Employee" />
+            <Text fill="#3c3d3f" layoutX="1238.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Reseued Rooms" wrappingWidth="100.181640625" />
+            <Text fill="#3c3d3f" layoutX="1242.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Free" wrappingWidth="17.255848288536072" />
+            <Text fill="#3c3d3f" layoutX="1424.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
+            <Text fill="#3c3d3f" layoutX="1288.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="Non-AC " />
+            <Text fill="#3c3d3f" layoutX="1290.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="Non-AC / Food " />
+            <Text fill="#3c3d3f" layoutX="1288.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="AC " />
+            <Text fill="#3c3d3f" layoutX="1290.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="AC / Food" />
+            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
+            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
+            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
+            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
+            <Text fill="#3c3d3f" layoutX="1022.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
+            <Text fill="#3c3d3f" layoutX="1022.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
+            <Line endX="61.66668701171875" endY="-39.7255859375" layoutX="937.0" layoutY="165.0" startX="61.66668701171875" startY="3.0" strokeWidth="2.0" />
+            <Line endX="73.66668701171875" endY="-5.66668701171875" layoutX="947.0" layoutY="175.0" startX="52.66668701171875" startY="-6.0" strokeWidth="2.0" />
+            <Line endX="61.66668701171875" endY="-39.7255859375" layoutX="937.0" layoutY="300.0" startX="61.66668701171875" startY="3.0" strokeWidth="2.0" />
+            <Line endX="73.66668701171875" endY="-5.66668701171875" layoutX="947.0" layoutY="310.0" startX="52.66668701171875" startY="-6.0" strokeWidth="2.0" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="190.0" fitWidth="434.0" layoutX="258.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/image/backGrundImage/icon/ijse.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="783.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Logo-txt" text="Hostel Management System" />
+   </children>
+</AnchorPane>

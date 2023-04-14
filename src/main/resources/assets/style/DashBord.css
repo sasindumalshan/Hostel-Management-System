@@ -1,0 +1,42 @@
+.Logo-txt{
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 70;
+    -fx-font-family: Impact;
+    -fx-effect: dropshadow( gaussian ,dimgray,80,0.5,0,0);
+}
+.Time-txt{
+    -fx-text-fill: #3C3D3F;
+    -fx-font-weight: bold;
+    -fx-font-size: 70;
+    -fx-font-family: "Segoe UI";
+
+}
+.date-time-box{
+    -fx-effect: dropshadow( gaussian ,dimgray,40,0.1,0,0);
+    /*-fx-effect: innershadow( two-pass-box ,dimgray,50,0.01,0,0);*/
+}
+.date-txt{
+    -fx-text-fill: #3C3D3F;
+    -fx-font-weight: bold;
+    -fx-font-size: 25;
+    -fx-font-family: "Segoe UI";
+
+}
+.dashBord-button{
+    -fx-background-color: #fff;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow( gaussian ,dimgray,40,0.1,0,0);
+}
+.room-details{
+    -fx-text-fill: #3C3D3F;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-font-family: "Segoe UI";
+}
+.detail{
+    -fx-text-fill: #3C3D3F;
+    -fx-font-weight: bold;
+    -fx-font-size: 50;
+    -fx-font-family: Arial;
+}
