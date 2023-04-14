@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
 
 @Entity
 
@@ -26,4 +26,16 @@ public class Reservation {
     private Student student;
     @ManyToOne(targetEntity = Room.class,cascade = CascadeType.ALL)
     private Room room;
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "res_id='" + res_id + '\'' +
+                ", date=" + date +
+                ", status='" + status + '\'' +
+                ", student=" + student +
+                ", room=" + room +
+                '}';
+    }
 }
+

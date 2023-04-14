@@ -75,7 +75,6 @@ public class StudentServiceImpl implements StudentService {
         try {
             studentRepository.setSession(session);
             student = studentRepository.get(student_id);
-            System.out.println(student);
             transaction.commit();
             studentDto = new StudentDto();
             studentDto.setStudent_id(student.getStudent_id());

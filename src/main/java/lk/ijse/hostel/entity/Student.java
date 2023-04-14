@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
 
 @Entity
 public class Student {
@@ -32,4 +32,19 @@ public class Student {
     private LocalDate birthday;
     private String gender;
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "reservations=" + reservations +
+                ", student_id='" + student_id + '\'' +
+                ", fist_name='" + fist_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", city='" + city + '\'' +
+                ", lane='" + lane + '\'' +
+                ", street='" + street + '\'' +
+                ", contact_no='" + contact_no + '\'' +
+                ", birthday=" + birthday +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
 }
