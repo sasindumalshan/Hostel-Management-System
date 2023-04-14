@@ -1,5 +1,6 @@
 package lk.ijse.hostel.entity;
 
+import lk.ijse.hostel.dto.ReservationDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,16 @@ public class Reservation {
                 ", student=" + student +
                 ", room=" + room +
                 '}';
+    }
+
+    public ReservationDto toEntity() {
+        ReservationDto dto=new ReservationDto();
+        dto.setRes_id(this.res_id);
+        dto.setDate(this.date);
+        dto.setStatus(this.status);
+        dto.setRoom(this.room);
+        dto.setStudent(this.student);
+        return dto;
     }
 }
 

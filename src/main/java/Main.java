@@ -18,7 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent parent =  FXMLLoader.load(getClass().getResource("/view/NewResuvationFrom.fxml"));
+        Parent parent =  FXMLLoader.load(getClass().getResource("/view/ResuvationFrom.fxml"));
         stage.setScene(new Scene(parent));
         stage.setTitle("Hostel");
         stage.centerOnScreen();

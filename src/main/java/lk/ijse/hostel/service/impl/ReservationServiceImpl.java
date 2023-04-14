@@ -1,6 +1,7 @@
 package lk.ijse.hostel.service.impl;
 
 import lk.ijse.hostel.dto.ReservationDto;
+import lk.ijse.hostel.entity.Reservation;
 import lk.ijse.hostel.projection.ReservationIdProjection;
 import lk.ijse.hostel.projection.StudentIdProjection;
 import lk.ijse.hostel.repository.ReservationRepository;
@@ -15,6 +16,7 @@ import java.util.List;
 public class ReservationServiceImpl implements ReservationService {
     private Session session;
     private static ReservationService service;
+    private ReservationDto reservationDto;
     private ReservationRepository reservationRepository;
     private ReservationServiceImpl(){
         reservationRepository= ReservationRepositoryImpl.getInstance();
@@ -58,5 +60,24 @@ public class ReservationServiceImpl implements ReservationService {
             session.close();
         }
 
+    }
+
+    @Override
+    public ReservationDto get(String res_id) {
+        session=FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            reservationRepository.setSession(session);
+            Reservation reservation = reservationRepository.get(res_id);
+            reservationDto=reservation.toEntity();
+            transaction.commit();
+            return reservationDto;
+        }catch (Exception e){
+            System.out.println(e);
+            transaction.rollback();
+            return null;
+        }finally {
+            session.close();
+        }
     }
 }

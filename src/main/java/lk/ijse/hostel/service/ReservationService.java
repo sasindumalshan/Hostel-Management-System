@@ -10,4 +10,6 @@ public interface ReservationService {
     List<ReservationIdProjection> getAllIdsByOrder();
 
     boolean save(ReservationDto dto);
+
+    ReservationDto get(String res_id);
 }

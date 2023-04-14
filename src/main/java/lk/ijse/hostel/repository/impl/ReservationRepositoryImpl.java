@@ -32,7 +32,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public Reservation get(String s) {
-        return null;
+    return (Reservation) session.get(Reservation.class,s);
     }
 
     @Override

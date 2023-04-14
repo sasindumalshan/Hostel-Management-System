@@ -64,12 +64,11 @@
       </ScrollPane>
       <Pane layoutX="65.0" layoutY="357.0" prefHeight="48.0" prefWidth="1786.0" style="-fx-border-color: black;">
          <children>
-            <Text layoutX="49.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Student Id" />
-            <Text layoutX="276.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Name" />
-            <Text layoutX="628.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Addredss" />
-            <Text layoutX="1053.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Contact Number" />
-            <Text layoutX="1306.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Brithday" />
-            <Text layoutX="1494.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Gender" />
+            <Text layoutX="49.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Reservation Id" />
+            <Text layoutX="276.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Room Type" />
+            <Text layoutX="545.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Student Id : Student Name" />
+            <Text layoutX="1093.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Date" />
+            <Text layoutX="1409.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Status" />
          </children>
       </Pane>
       <Pane fx:id="pane" layoutX="75.0" layoutY="111.0" prefHeight="82.0" prefWidth="1802.0" />

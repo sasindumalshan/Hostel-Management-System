@@ -7,9 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import lk.ijse.hostel.dto.ReservationDto;
 import lk.ijse.hostel.entity.Room;
+import lk.ijse.hostel.projection.ReservationIdProjection;
 import lk.ijse.hostel.projection.RoomIdProjection;
+import lk.ijse.hostel.service.ReservationService;
 import lk.ijse.hostel.service.RoomService;
+import lk.ijse.hostel.service.impl.ReservationServiceImpl;
 import lk.ijse.hostel.service.impl.RoomServiceImpl;
 
 import java.io.IOException;
@@ -22,13 +26,37 @@ public class ReservationFromController implements Initializable {
     public HBox hBox;
     public Pane pane;
     RoomService roomService;
+    ReservationService reservationService;
     public void addOnAction(ActionEvent actionEvent) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadDataForTable();
         loadRoomType();
+    }
+
+    private void loadDataForTable() {
+        reservationService= ReservationServiceImpl.getInstance();
+        List<ReservationIdProjection> ids = reservationService.getAllIdsByOrder();
+        for (ReservationIdProjection idProjection:ids) {
+            loadData(idProjection);
+        }
+    }
+
+    private void loadData(ReservationIdProjection idProjection) {
+        reservationService=ReservationServiceImpl.getInstance();
+        ReservationDto dto = reservationService.get(idProjection.getRes_id());
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ReservationBarFrom.fxml"));
+            Parent root = loader.load();
+            ReservationBarFromController controller = loader.getController();
+            controller.setData(dto);
+            vbox.getChildren().add(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadRoomType() {
