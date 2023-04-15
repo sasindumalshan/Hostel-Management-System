@@ -2,7 +2,6 @@ package lk.ijse.hostel.repository.impl;
 
 import lk.ijse.hostel.entity.Reservation;
 import lk.ijse.hostel.projection.ReservationIdProjection;
-import lk.ijse.hostel.projection.StudentIdProjection;
 import lk.ijse.hostel.repository.ReservationRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -11,18 +10,19 @@ import java.util.List;
 
 public class ReservationRepositoryImpl implements ReservationRepository {
     private static ReservationRepositoryImpl repository;
+    private Session session;
 
-    private ReservationRepositoryImpl(){}
-    public static ReservationRepositoryImpl getInstance(){
-        return repository=repository==null?new ReservationRepositoryImpl():repository;
+    private ReservationRepositoryImpl() {
     }
 
-    private Session session;
+    public static ReservationRepositoryImpl getInstance() {
+        return repository = repository == null ? new ReservationRepositoryImpl() : repository;
+    }
 
     @Override
     public String save(Reservation Object) {
         System.out.println(session);
-      return (String) session.save(Object);
+        return (String) session.save(Object);
     }
 
     @Override
@@ -32,12 +32,12 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public Reservation get(String s) {
-    return (Reservation) session.get(Reservation.class,s);
+        return session.get(Reservation.class, s);
     }
 
     @Override
     public void delete(Reservation Objec) {
-
+        session.remove(Objec);
     }
 
     @Override

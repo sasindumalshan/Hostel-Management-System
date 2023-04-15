@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="708.0" prefWidth="1057.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.NewRenovationFrom">
    <children>
       <JFXButton layoutX="871.0" layoutY="187.0" onAction="#addOnAction" prefHeight="38.0" prefWidth="138.0" styleClass="bevel-grey">

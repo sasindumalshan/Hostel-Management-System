@@ -12,4 +12,6 @@ public interface ReservationService {
     boolean save(ReservationDto dto);
 
     ReservationDto get(String res_id);
+
+    boolean remove(ReservationDto reservationDto);
 }

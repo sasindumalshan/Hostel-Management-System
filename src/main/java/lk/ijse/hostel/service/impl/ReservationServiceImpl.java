@@ -80,4 +80,23 @@ public class ReservationServiceImpl implements ReservationService {
             session.close();
         }
     }
+
+    @Override
+    public boolean remove(ReservationDto reservationDto) {
+        reservationRepository=ReservationRepositoryImpl.getInstance();
+        session=FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            reservationRepository.setSession(session);
+            reservationRepository.delete(reservationDto.toEntity());
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+
+    }
 }

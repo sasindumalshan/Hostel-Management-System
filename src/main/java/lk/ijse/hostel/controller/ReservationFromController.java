@@ -15,6 +15,7 @@ import lk.ijse.hostel.service.ReservationService;
 import lk.ijse.hostel.service.RoomService;
 import lk.ijse.hostel.service.impl.ReservationServiceImpl;
 import lk.ijse.hostel.service.impl.RoomServiceImpl;
+import lk.ijse.hostel.util.Navigation;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,13 +23,27 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReservationFromController implements Initializable {
+    private static ReservationFromController controller;
     public VBox vbox;
     public HBox hBox;
     public Pane pane;
     RoomService roomService;
     ReservationService reservationService;
-    public void addOnAction(ActionEvent actionEvent) {
 
+    public ReservationFromController() {
+        controller = this;
+    }
+
+    public static ReservationFromController getInstance() {
+        return controller;
+    }
+
+    public void addOnAction(ActionEvent actionEvent) {
+        try {
+            Navigation.popupNavigation("NewResuvationFrom.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -37,16 +52,17 @@ public class ReservationFromController implements Initializable {
         loadRoomType();
     }
 
-    private void loadDataForTable() {
-        reservationService= ReservationServiceImpl.getInstance();
+    public void loadDataForTable() {
+        vbox.getChildren().clear();
+        reservationService = ReservationServiceImpl.getInstance();
         List<ReservationIdProjection> ids = reservationService.getAllIdsByOrder();
-        for (ReservationIdProjection idProjection:ids) {
+        for (ReservationIdProjection idProjection : ids) {
             loadData(idProjection);
         }
     }
 
     private void loadData(ReservationIdProjection idProjection) {
-        reservationService=ReservationServiceImpl.getInstance();
+        reservationService = ReservationServiceImpl.getInstance();
         ReservationDto dto = reservationService.get(idProjection.getRes_id());
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ReservationBarFrom.fxml"));
@@ -60,7 +76,7 @@ public class ReservationFromController implements Initializable {
     }
 
     private void loadRoomType() {
-      roomService= RoomServiceImpl.getInstance();
+        roomService = RoomServiceImpl.getInstance();
         List<RoomIdProjection> allIds = roomService.getAllIds();
         for (int i = 0; i < allIds.size(); i++) {
             loadDataForRoomType(allIds.get(i));
@@ -68,7 +84,7 @@ public class ReservationFromController implements Initializable {
     }
 
     private void loadDataForRoomType(RoomIdProjection roomIdProjection) {
-        roomService= RoomServiceImpl.getInstance();
+        roomService = RoomServiceImpl.getInstance();
         Room room = roomService.get(roomIdProjection.getRoomId());
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/RoomTypeBarFrom.fxml"));
