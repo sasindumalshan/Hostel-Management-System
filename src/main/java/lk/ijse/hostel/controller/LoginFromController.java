@@ -45,8 +45,6 @@ public class LoginFromController implements Initializable {
         btnCreateAccount.setDisable(true);
         service = UserServiceImpl.getInstance();
         userDto=new UserDto();
-        userDto.setUser_id("U001");
-        userDto.setPassword(txtPasswordComfrom.getText());
         if (service.tableIsEmplty()){
             btnCreateAccount.setDisable(false);
             userDto.setUser_name(txtUserName.getText());
@@ -62,22 +60,10 @@ public class LoginFromController implements Initializable {
                 e.printStackTrace();
             }
         }else {
+            userDto.setUser_id("U001");
+            userDto.setPassword(txtPasswordComfrom.getText());
             txtPasswordComfrom.setVisible(true);
-            if (service.checkPassword(userDto)){
-                btnCreateAccount.setDisable(false);
-                userDto.setUser_name(txtUserName.getText());
-                userDto.setPassword(txtPassword.getText());
-                userDto.setUser_id(id());
-                try {
-                    if (service.add(userDto)){
-                        Navigation.switchNavigation("DashBord.fxml",actionEvent);
-                    }else {
-                        new Alert(Alert.AlertType.WARNING,"Something wrong").show();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }else {}
+
         }
 
 
@@ -95,18 +81,36 @@ txtPasswordComfrom.setVisible(false);
     }
 
     public void txtPasswordOnAction(ActionEvent actionEvent) {
-        service = UserServiceImpl.getInstance();
-        userDto=new UserDto();
-        userDto.setUser_name(txtUserName.getText());
-        userDto.setPassword(txtPassword.getText());
-        try {
-            if (service.checkUserDetails(userDto)) {
+//        service = UserServiceImpl.getInstance();
+//        userDto=new UserDto();
+//        userDto.setUser_name(txtUserName.getText());
+//        userDto.setPassword(txtPassword.getText());
+//        try {
+//            if (service.checkUserDetails(userDto)) {
+//
+//            } else {
+//                new Alert(Alert.AlertType.WARNING,"Something wrong").show();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-            } else {
-                new Alert(Alert.AlertType.WARNING,"Something wrong").show();
+        if (service.checkPassword(userDto)){
+            btnCreateAccount.setDisable(false);
+            userDto.setUser_name(txtUserName.getText());
+            userDto.setPassword(txtPassword.getText());
+            userDto.setUser_id(id());
+            try {
+                if (service.add(userDto)){
+                    Navigation.switchNavigation("DashBord.fxml",actionEvent);
+                }else {
+                    new Alert(Alert.AlertType.WARNING,"Something wrong").show();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        }else {
+            new Alert(Alert.AlertType.WARNING," wrong password ... ! ").show();
         }
     }
 }
