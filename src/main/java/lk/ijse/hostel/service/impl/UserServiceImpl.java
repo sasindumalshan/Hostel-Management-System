@@ -1,6 +1,7 @@
 package lk.ijse.hostel.service.impl;
 
 import lk.ijse.hostel.dto.UserDto;
+import lk.ijse.hostel.entity.User;
 import lk.ijse.hostel.projection.StudentIdProjection;
 import lk.ijse.hostel.projection.UserIdProjection;
 import lk.ijse.hostel.repository.UserRepository;
@@ -100,6 +101,29 @@ public class UserServiceImpl implements UserService {
             List<UserIdProjection> list = userRepository.getAllIDsByOrders();
             transaction.commit();
             return list;
+        } catch (Exception e) {
+            transaction.rollback();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public UserDto get(String id) {
+        session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+
+            userRepository.setSession(session);
+            User user = userRepository.get(id);
+            transaction.commit();
+            UserDto userDto=new UserDto();
+            userDto.setUser_id(user.getUser_id());
+            userDto.setUser_name(user.getUser_name());
+            userDto.setPassword(user.getPassword());
+
+            return userDto;
         } catch (Exception e) {
             transaction.rollback();
             return null;

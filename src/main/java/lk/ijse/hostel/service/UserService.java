@@ -16,4 +16,6 @@ public interface UserService {
     boolean tableIsEmplty();
 
     List<UserIdProjection> getAllIdsByOrder();
+
+    UserDto get(String id);
 }
