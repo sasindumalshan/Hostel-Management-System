@@ -1,6 +1,5 @@
 package lk.ijse.hostel.repository.impl;
 
-import lk.ijse.hostel.dto.UserDto;
 import lk.ijse.hostel.entity.User;
 import lk.ijse.hostel.projection.UserIdProjection;
 import lk.ijse.hostel.repository.UserRepository;
@@ -23,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public String save(User Object) {
 
-       return (String) session.save(Object);
+        return (String) session.save(Object);
     }
 
     @Override
@@ -38,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void delete(User Objec) {
-
+        session.delete(Objec);
     }
 
     @Override
@@ -49,23 +48,23 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public boolean isExsitUser(User user) {
         Query query = session.createQuery("from User as U where U.user_name=:un and U.password=:pd");
-        query.setParameter("un",user.getUser_name());
-        query.setParameter("pd",user.getPassword());
+        query.setParameter("un", user.getUser_name());
+        query.setParameter("pd", user.getPassword());
         User user1 = (User) query.uniqueResult();
 
         System.out.println(user1);
-        return user1==null?false:true;
+        return user1 != null;
     }
 
     @Override
     public boolean isPassword(User user) {
         Query query = session.createQuery("from User as U where U.user_id=:un and U.password=:pd");
-        query.setParameter("un",user.getUser_id());
-        query.setParameter("pd",user.getPassword());
+        query.setParameter("un", user.getUser_id());
+        query.setParameter("pd", user.getPassword());
         User user1 = (User) query.uniqueResult();
 
         System.out.println(user1);
-        return user1==null?false:true;
+        return user1 != null;
     }
 
     @Override
@@ -73,7 +72,7 @@ public class UserRepositoryImpl implements UserRepository {
         Query query = session.createQuery("from User as U ");
         List list = query.list();
         System.out.println(list.size());
-        return list.size()==0?false:true;
+        return list.size() != 0;
     }
 
     @Override

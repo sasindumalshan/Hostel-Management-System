@@ -131,4 +131,40 @@ public class UserServiceImpl implements UserService {
             session.close();
         }
     }
+
+    @Override
+    public boolean remove(UserDto userDto) {
+        session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+
+            userRepository.setSession(session);
+            userRepository.delete(userDto.toEntity());
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean update(UserDto userDto) {
+        session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+
+            userRepository.setSession(session);
+            userRepository.update(userDto.toEntity());
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
 }

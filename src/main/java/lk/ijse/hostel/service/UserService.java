@@ -18,4 +18,8 @@ public interface UserService {
     List<UserIdProjection> getAllIdsByOrder();
 
     UserDto get(String id);
+
+    boolean remove(UserDto userDto);
+
+    boolean update(UserDto userDto);
 }
