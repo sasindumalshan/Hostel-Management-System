@@ -2,6 +2,7 @@ package lk.ijse.hostel.repository.impl;
 
 import lk.ijse.hostel.dto.UserDto;
 import lk.ijse.hostel.entity.User;
+import lk.ijse.hostel.projection.UserIdProjection;
 import lk.ijse.hostel.repository.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -73,5 +74,11 @@ public class UserRepositoryImpl implements UserRepository {
         List list = query.list();
         System.out.println(list.size());
         return list.size()==0?false:true;
+    }
+
+    @Override
+    public List<UserIdProjection> getAllIDsByOrders() {
+        Query query = session.createQuery("select new  lk.ijse.hostel.projection.UserIdProjection(S.id) from User as S order by LENGTH(user_id),user_id ");
+        return query.list();
     }
 }

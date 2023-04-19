@@ -1,12 +1,16 @@
 package lk.ijse.hostel.service.impl;
 
 import lk.ijse.hostel.dto.UserDto;
+import lk.ijse.hostel.projection.StudentIdProjection;
+import lk.ijse.hostel.projection.UserIdProjection;
 import lk.ijse.hostel.repository.UserRepository;
 import lk.ijse.hostel.repository.impl.UserRepositoryImpl;
 import lk.ijse.hostel.service.UserService;
 import lk.ijse.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class UserServiceImpl implements UserService {
     private static UserServiceImpl service;
@@ -82,6 +86,23 @@ public class UserServiceImpl implements UserService {
             return isExists;
         } catch (Exception e) {
             return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<UserIdProjection> getAllIdsByOrder() {
+        session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            userRepository.setSession(session);
+            List<UserIdProjection> list = userRepository.getAllIDsByOrders();
+            transaction.commit();
+            return list;
+        } catch (Exception e) {
+            transaction.rollback();
+            return null;
         } finally {
             session.close();
         }
