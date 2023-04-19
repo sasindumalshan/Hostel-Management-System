@@ -27,6 +27,9 @@ public class SettingFromController {
     public void SearchId(ActionEvent actionEvent) {
         service = UserServiceImpl.getInstance();
        userDto= service.get(txtUseId.getText());
+       txtUseId.setText(userDto.getUser_id());
+       txtPassword.setText(userDto.getPassword());
+       txtQTY.setText(userDto.getUser_name());
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
