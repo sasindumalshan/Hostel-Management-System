@@ -21,7 +21,8 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public String save(User Object) {
-        return null;
+
+       return (String) session.save(Object);
     }
 
     @Override
@@ -53,5 +54,24 @@ public class UserRepositoryImpl implements UserRepository {
 
         System.out.println(user1);
         return user1==null?false:true;
+    }
+
+    @Override
+    public boolean isPassword(User user) {
+        Query query = session.createQuery("from User as U where U.user_id=:un and U.password=:pd");
+        query.setParameter("un",user.getUser_id());
+        query.setParameter("pd",user.getPassword());
+        User user1 = (User) query.uniqueResult();
+
+        System.out.println(user1);
+        return user1==null?false:true;
+    }
+
+    @Override
+    public boolean isTableEmpty() {
+        Query query = session.createQuery("from User as U ");
+        List list = query.list();
+        System.out.println(list.size());
+        return list.size()==0?false:true;
     }
 }

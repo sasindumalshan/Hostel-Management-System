@@ -22,15 +22,16 @@
             <JFXButton layoutX="119.0" layoutY="345.0" onAction="#loginOnAction" prefHeight="38.0" prefWidth="244.0" styleClass="login-button" text="LOGIN" />
             <Text fill="#ff2f2f" layoutX="195.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-txt" text="LOGIN" />
             <Separator layoutX="87.0" layoutY="190.0" prefHeight="3.0" prefWidth="306.0" style="-fx-background-color: red;" />
-            <TextField fx:id="txtUserName" alignment="CENTER" layoutX="108.0" layoutY="222.0" prefHeight="26.0" prefWidth="263.0" promptText="User name" />
-            <TextField fx:id="txtPassword" alignment="CENTER" layoutX="108.0" layoutY="265.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
-            <JFXButton layoutX="119.0" layoutY="409.0" onAction="#createAccountOnAction" prefHeight="38.0" prefWidth="244.0" styleClass="CA-button" text="CREATE ACCOUNT" />
+            <TextField fx:id="txtUserName" alignment="CENTER" layoutX="108.0" layoutY="213.0" prefHeight="26.0" prefWidth="263.0" promptText="User name" />
+            <TextField fx:id="txtPassword" alignment="CENTER" layoutX="108.0" layoutY="257.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
+            <JFXButton fx:id="btnCreateAccount" layoutX="119.0" layoutY="409.0" onAction="#createAccountOnAction" prefHeight="38.0" prefWidth="244.0" styleClass="CA-button" text="CREATE ACCOUNT" />
             <Text fill="#ff2f2f" layoutX="195.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Froget Password " />
             <ImageView blendMode="DARKEN" fitHeight="106.0" fitWidth="271.0" layoutX="119.0" layoutY="476.0" nodeOrientation="INHERIT" opacity="0.1" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../assets/image/backGrundImage/icon/ijse.png" />
                </image>
             </ImageView>
+            <TextField fx:id="txtPasswordComfrom" alignment="CENTER" layoutX="107.0" layoutY="301.0" onAction="#txtPasswordOnAction" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
          </children>
       </Pane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="126.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
