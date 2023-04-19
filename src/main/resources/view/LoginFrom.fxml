@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="529.0" prefWidth="899.0" stylesheets="@../assets/style/DashBord.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.LoginFromController">
+   <children>
+      <ImageView fitHeight="529.0" fitWidth="899.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/image/backGrundImage/modern-residential-building.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="439.0" prefHeight="529.0" prefWidth="460.0" style="-fx-background-color: white;">
+         <children>
+            <JFXButton layoutX="119.0" layoutY="345.0" onAction="#loginOnAction" prefHeight="38.0" prefWidth="244.0" styleClass="login-button" text="LOGIN" />
+            <Text fill="#ff2f2f" layoutX="195.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login-txt" text="LOGIN" />
+            <Separator layoutX="87.0" layoutY="190.0" prefHeight="3.0" prefWidth="306.0" style="-fx-background-color: red;" />
+            <TextField fx:id="txtUserName" alignment="CENTER" layoutX="108.0" layoutY="222.0" prefHeight="26.0" prefWidth="263.0" promptText="User name" />
+            <TextField fx:id="txtPassword" alignment="CENTER" layoutX="108.0" layoutY="265.0" prefHeight="26.0" prefWidth="263.0" promptText="Password" />
+            <JFXButton layoutX="119.0" layoutY="409.0" onAction="#createAccountOnAction" prefHeight="38.0" prefWidth="244.0" styleClass="CA-button" text="CREATE ACCOUNT" />
+            <Text fill="#ff2f2f" layoutX="195.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Froget Password " />
+            <ImageView blendMode="DARKEN" fitHeight="106.0" fitWidth="271.0" layoutX="119.0" layoutY="476.0" nodeOrientation="INHERIT" opacity="0.1" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../assets/image/backGrundImage/icon/ijse.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="126.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/image/backGrundImage/icon/ijse.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="84.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" styleClass="Logo-txt" text="Hostel Management System" />
+      <ImageView blendMode="DARKEN" fitHeight="106.0" fitWidth="271.0" layoutX="546.0" layoutY="-54.0" nodeOrientation="INHERIT" opacity="0.1" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/image/backGrundImage/icon/ijse.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -27,7 +27,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public void update(Reservation Object) {
-
+        session.update(Object);
     }
 
     @Override

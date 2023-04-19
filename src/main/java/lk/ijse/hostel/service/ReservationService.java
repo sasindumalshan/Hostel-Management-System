@@ -14,4 +14,6 @@ public interface ReservationService {
     ReservationDto get(String res_id);
 
     boolean remove(ReservationDto reservationDto);
+
+    boolean update(ReservationDto reservationDto);
 }

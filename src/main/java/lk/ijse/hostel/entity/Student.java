@@ -18,6 +18,7 @@ import java.util.List;
 @Entity
 public class Student {
     @OneToMany(mappedBy = "student",targetEntity = Reservation.class,cascade = CascadeType.ALL)
+
     private final List<Reservation> reservations = new ArrayList<>();
     @Id
     @Column(name = "student_id", columnDefinition = "VARCHAR(45)")

@@ -4,6 +4,7 @@ package lk.ijse.hostel.util;
 import lk.ijse.hostel.entity.Reservation;
 import lk.ijse.hostel.entity.Room;
 import lk.ijse.hostel.entity.Student;
+import lk.ijse.hostel.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -17,11 +18,14 @@ public class FactoryConfiguration {
 
     private FactoryConfiguration() {
 
-        StandardServiceRegistryBuilder serviceRegistryBuilder =new StandardServiceRegistryBuilder();
+        StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
         serviceRegistryBuilder.loadProperties("hibernate.properties");
         StandardServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
-        MetadataSources metadataSources=new MetadataSources(serviceRegistry);
-        metadataSources.addAnnotatedClass(Room.class).addAnnotatedClass(Student.class).addAnnotatedClass(Reservation.class);
+        MetadataSources metadataSources = new MetadataSources(serviceRegistry);
+        metadataSources.addAnnotatedClass(Room.class)
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Reservation.class)
+                .addAnnotatedClass(User.class);
         Metadata build = metadataSources.getMetadataBuilder().build();
 
         sessionFactory = build.getSessionFactoryBuilder().build();
@@ -30,10 +34,12 @@ public class FactoryConfiguration {
 //                .addAnnotatedClass(Room.class);
 //        sessionFactory = config.buildSessionFactory();
     }
+
     public static FactoryConfiguration getInstance() {
-        return ( factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration()
+        return (factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration()
                 : factoryConfiguration;
     }
+
     public Session getSession() {
         return sessionFactory.openSession();
     }

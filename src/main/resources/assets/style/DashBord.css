@@ -40,3 +40,45 @@
     -fx-font-size: 50;
     -fx-font-family: Arial;
 }
+
+.login-button{
+    -fx-background-color: #ee3434;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow( gaussian , #ff8080,40,0.1,0,0);
+    -fx-font-size: 15;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+
+}
+.login-button:hover{
+    -fx-background-color: #fff;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow( gaussian , #ff8080,40,0.1,0,0);
+    -fx-text-fill: #ee3434;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+}
+.login-txt{
+    -fx-text-fill: #ee3434;
+    -fx-font-size: 30;
+    -fx-font-family: Impact;
+    -fx-font-weight: bold;
+}
+
+.CA-button{
+    -fx-background-color: #fff;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow( gaussian , #ff8080,40,0.1,0,0);
+    -fx-font-size: 15;
+    -fx-text-fill: #ee3434;
+    -fx-font-weight: bold;
+
+}
+.CA-button:hover{
+    -fx-background-color: #ee3434;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow( gaussian , #ff8080,40,0.1,0,0);
+    -fx-text-fill: #fff;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+}
