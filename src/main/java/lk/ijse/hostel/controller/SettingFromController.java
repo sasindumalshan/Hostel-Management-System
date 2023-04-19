@@ -51,7 +51,7 @@ public class SettingFromController {
 
         service = UserServiceImpl.getInstance();
         if (service.update(userDto)) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Updated").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "error").show();
         }
