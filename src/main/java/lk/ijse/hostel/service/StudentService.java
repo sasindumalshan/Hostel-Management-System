@@ -16,4 +16,8 @@ public interface StudentService {
     boolean updateStudent(StudentDto studentDto);
 
     boolean remove(StudentDto dto);
+
+    String getAllStudentCount();
+
+    List<StudentIdProjection> getSearchData(String id);
 }

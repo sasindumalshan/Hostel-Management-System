@@ -36,12 +36,13 @@ public class ReservationBarFromController {
     }
 
     public void setData(ReservationDto dto) {
+
         student = dto.getStudent();
         room = dto.getRoom();
         txtDate.setText(String.valueOf(dto.getDate()));
         txtReservationId.setText(dto.getRes_id());
-        txtStudentId.setText(student.getStudent_id() + " : " + student.getFist_name() + " " + student.getLast_name());
-        txtRoomType.setText(room.getType());
+//        txtStudentId.setText(student.getStudent_id() + " : " + student.getFist_name() + " " + student.getLast_name());
+//        txtRoomType.setText(room.getType());
         txtStatus.setText(dto.getStatus());
     }
 

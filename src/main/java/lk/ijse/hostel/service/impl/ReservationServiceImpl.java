@@ -30,14 +30,14 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<ReservationIdProjection> getAllIdsByOrder() {
         session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+//        Transaction transaction = session.beginTransaction();
         try {
             reservationRepository.setSession(session);
             List<ReservationIdProjection> list = reservationRepository.getAllIDsByOrders();
-            transaction.commit();
+//            transaction.commit();
             return list;
         } catch (Exception e) {
-            transaction.rollback();
+//            transaction.rollback();
             return null;
         } finally {
             session.close();
@@ -65,20 +65,28 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public ReservationDto get(String res_id) {
-        session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+//        session = FactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//        try {
+//            reservationRepository.setSession(session);
+//            Reservation reservation = reservationRepository.get(res_id);
+//            reservationDto = reservation.toEntity();
+//            transaction.commit();
+//            return reservationDto;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            transaction.rollback();
+//            return null;
+//        } finally {
+//            session.close();
+//        }
+        session=FactoryConfiguration.getInstance().getSession();
+        reservationRepository.setSession(session);
         try {
-            reservationRepository.setSession(session);
             Reservation reservation = reservationRepository.get(res_id);
-            reservationDto = reservation.toEntity();
-            transaction.commit();
-            return reservationDto;
-        } catch (Exception e) {
-            System.out.println(e);
-            transaction.rollback();
+          return   reservation.toEntity();
+        }catch (Exception e){
             return null;
-        } finally {
-            session.close();
         }
     }
 
@@ -132,6 +140,45 @@ public class ReservationServiceImpl implements ReservationService {
             transaction.rollback();
             return false;
         } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public String getAllReservationCount() {
+        session=FactoryConfiguration.getInstance().getSession();
+        reservationRepository.setSession(session);
+        try {
+           return reservationRepository.getAllReservationRoomCount();
+        }catch (Exception e){
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<ReservationIdProjection> getSearchIds(String id) {
+        session=FactoryConfiguration.getInstance().getSession();
+        reservationRepository.setSession(session);
+        try {
+          List<ReservationIdProjection> ids= reservationRepository.getSearchIds(id);
+          return ids;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    @Override
+    public String getCountForId(String id) {
+        session=FactoryConfiguration.getInstance().getSession();
+        reservationRepository.setSession(session);
+        try {
+         return reservationRepository.getCountForId(id);
+       }catch (Exception e){
+            return null;
+        }finally {
             session.close();
         }
     }

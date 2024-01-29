@@ -49,4 +49,20 @@ public class StudentRepositoryImpl implements StudentRepository {
         Query query = session.createQuery("select new  lk.ijse.hostel.projection.StudentIdProjection(S.id) from Student as S order by LENGTH(student_id),student_id ");
         return query.list();
     }
+
+    @Override
+    public String getAllStudentCount() {
+        Query query = session.createQuery("select COUNT (S.student_id) from  Student as S");
+        Object o = query.uniqueResult();
+        return o.toString();
+    }
+
+    @Override
+    public List<StudentIdProjection> getSearchIds(String id) {
+        Query query = session.createQuery("select new lk.ijse.hostel.projection.StudentIdProjection(S.student_id) from Student as S where S.student_id like :id or S.fist_name like :f or S.last_name like :l");
+        query.setParameter("id",id+"%");
+        query.setParameter("f",id+"%");
+        query.setParameter("l",id+"%");
+        return query.list();
+    }
 }

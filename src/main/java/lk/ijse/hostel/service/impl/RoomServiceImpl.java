@@ -1,9 +1,10 @@
 package lk.ijse.hostel.service.impl;
 
-import javafx.scene.control.Alert;
 import lk.ijse.hostel.dto.RoomDto;
 import lk.ijse.hostel.entity.Room;
+import lk.ijse.hostel.projection.RoomCountProjection;
 import lk.ijse.hostel.projection.RoomIdProjection;
+import lk.ijse.hostel.projection.StudentIdProjection;
 import lk.ijse.hostel.repository.RoomRepository;
 import lk.ijse.hostel.repository.impl.RoomRepositoryImpl;
 import lk.ijse.hostel.service.RoomService;
@@ -136,5 +137,49 @@ public class RoomServiceImpl implements RoomService {
         }*/
         RoomDto roomDto = roomRepository.getDataSearchForId(roomId);
         return roomDto;
+    }
+
+    @Override
+    public String getAllRoomCount() {
+        session = FactoryConfiguration.getInstance().getSession();
+        roomRepository.setSession(session);
+        try {
+            RoomCountProjection allRoomCount = roomRepository.getAllRoomCount();
+            session.close();
+            System.out.println(allRoomCount.getCount());
+          return allRoomCount.getCount();
+        }catch (Exception e){
+            System.err.println(e);
+            return null;
+        }
+
+    }
+
+    @Override
+    public List<RoomIdProjection> getSearchData(String id) {
+        session=FactoryConfiguration.getInstance().getSession();;
+        roomRepository.setSession(session);
+        try {
+           List<RoomIdProjection> list= roomRepository.getDataSearch(id);
+           return list;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<RoomIdProjection> getAllIdsByOrder() {
+        session=FactoryConfiguration.getInstance().getSession();
+        roomRepository.setSession(session);
+        try {
+         List<RoomIdProjection> id =  roomRepository.getIdForOrder();
+         return id;
+        }catch (Exception e){
+            return null;
+        }
     }
 }

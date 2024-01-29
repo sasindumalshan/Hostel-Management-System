@@ -16,4 +16,10 @@ public interface ReservationService {
     boolean remove(ReservationDto reservationDto);
 
     boolean update(ReservationDto reservationDto);
+
+    String getAllReservationCount();
+
+    List<ReservationIdProjection> getSearchIds(String id);
+
+    String getCountForId(String id);
 }

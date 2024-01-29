@@ -32,7 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User get(String s) {
-        return null;
+       return session.get(User.class,s);
     }
 
     @Override

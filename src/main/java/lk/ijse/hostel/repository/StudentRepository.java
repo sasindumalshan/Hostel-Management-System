@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface StudentRepository extends CrudRepository<Student,String>{
     List<StudentIdProjection> getAllIDsByOrders();
+
+    String getAllStudentCount();
+
+    List<StudentIdProjection> getSearchIds(String id);
 }

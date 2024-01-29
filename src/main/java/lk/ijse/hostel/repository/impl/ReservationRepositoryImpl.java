@@ -32,7 +32,10 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public Reservation get(String s) {
-        return session.get(Reservation.class, s);
+        System.out.println(s);
+        return session.get( Reservation.class,s);
+
+
     }
 
     @Override
@@ -49,5 +52,27 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     public List<ReservationIdProjection> getAllIDsByOrders() {
         Query query = session.createQuery("select new  lk.ijse.hostel.projection.ReservationIdProjection(R.id) from Reservation as R order by LENGTH(res_id),res_id ");
         return query.list();
+    }
+
+    @Override
+    public String getAllReservationRoomCount() {
+        Query query = session.createQuery("select count (R.res_id) from Reservation as R");
+        Object o = query.uniqueResult();
+        return o.toString();
+    }
+
+    @Override
+    public List<ReservationIdProjection> getSearchIds(String id) {
+        Query query = session.createQuery("select new lk.ijse.hostel.projection.ReservationIdProjection (R.res_id) from Reservation as R where R.res_id like :rid ");
+        query.setParameter("rid",id+"%");
+        return query.list();
+    }
+
+    @Override
+    public String getCountForId(String id) {
+        Query query = session.createQuery("select count (Reservation ) from Reservation as R where R.room.roomTypeId =:id");
+        query.setParameter("id",id);
+        Object o = query.uniqueResult();
+        return o.toString();
     }
 }

@@ -2,6 +2,7 @@ package lk.ijse.hostel.repository.impl;
 
 import lk.ijse.hostel.dto.RoomDto;
 import lk.ijse.hostel.entity.Room;
+import lk.ijse.hostel.projection.RoomCountProjection;
 import lk.ijse.hostel.projection.RoomIdProjection;
 import lk.ijse.hostel.repository.RoomRepository;
 import org.hibernate.Session;
@@ -37,12 +38,12 @@ public class RoomRepositoryImpl implements RoomRepository {
 
     @Override
     public Room get(String s) {
-        return session.get(Room.class,s);
+        return session.get(Room.class, s);
     }
 
     @Override
     public void delete(Room Object) {
-
+        session.delete(Object);
     }
 
     @Override
@@ -65,16 +66,44 @@ public class RoomRepositoryImpl implements RoomRepository {
         Query query = session.createQuery(sql);
         List<RoomDto> list = query.list();
         session.close();
-        if (!list.isEmpty()){
+        if (!list.isEmpty()) {
             return new RoomDto(
-                 list.get(1).getRoomTypeId(),
+                    list.get(1).getRoomTypeId(),
                     list.get(1).getKeyMoney(),
-                   String.valueOf(list.get(1).getQty()),
-                   Integer.valueOf(list.get(1).getType())
+                    String.valueOf(list.get(1).getQty()),
+                    Integer.valueOf(list.get(1).getType())
             );
-        }else {
+        } else {
             return null;
         }
 
+    }
+
+    @Override
+    public RoomCountProjection getAllRoomCount() {
+        Query query = session.createQuery("select count (roomTypeId) from  Room ");
+        Object o = query.uniqueResult();
+        System.out.println(o.toString());
+        RoomCountProjection projection = new RoomCountProjection(o.toString());
+        return projection;
+
+
+    }
+
+    @Override
+    public List<RoomIdProjection> getDataSearch(String id) {
+        Query query = session.createQuery("select new lk.ijse.hostel.projection.RoomIdProjection (R.roomTypeId) from Room as R where R.roomTypeId like :id or R.type like :t");
+        query.setParameter("id",id+"%");
+        query.setParameter("t",id+"%");
+        List list = query.list();
+        return list;
+
+    }
+
+    @Override
+    public List<RoomIdProjection> getIdForOrder() {
+        Query query = session.createQuery("select new lk.ijse.hostel.projection.RoomIdProjection (R.roomTypeId ) from Room as R order by LENGTH(R.roomTypeId),R.roomTypeId ");
+        List list = query.list();
+        return list;
     }
 }

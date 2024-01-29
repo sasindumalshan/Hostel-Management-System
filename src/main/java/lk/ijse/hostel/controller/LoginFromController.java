@@ -1,10 +1,14 @@
 package lk.ijse.hostel.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.hostel.dto.UserDto;
 import lk.ijse.hostel.projection.UserIdProjection;
 import lk.ijse.hostel.service.UserService;
@@ -18,9 +22,13 @@ import java.util.ResourceBundle;
 
 public class LoginFromController implements Initializable {
     public TextField txtUserName;
-    public TextField txtPassword;
+//    public TextField txtPasswordPField;
     public TextField txtPasswordComfrom;
     public JFXButton btnCreateAccount;
+    public ImageView imgCloseEye;
+    public ImageView imgEye;
+    public JFXPasswordField txtPasswordPField;
+    public JFXTextField txtPasswordField;
     UserDto userDto;
     private UserService service;
 
@@ -29,7 +37,7 @@ public class LoginFromController implements Initializable {
         service = UserServiceImpl.getInstance();
         userDto = new UserDto();
         userDto.setUser_name(txtUserName.getText());
-        userDto.setPassword(txtPassword.getText());
+        userDto.setPassword(txtPasswordPField.getText());
         try {
             if (service.checkUserDetails(userDto)) {
                 Navigation.switchNavigation("DashBord.fxml", actionEvent);
@@ -50,7 +58,7 @@ public class LoginFromController implements Initializable {
         if (service.tableIsEmplty()) {
             btnCreateAccount.setDisable(false);
             userDto.setUser_name(txtUserName.getText());
-            userDto.setPassword(txtPassword.getText());
+            userDto.setPassword(txtPasswordPField.getText());
             userDto.setUser_id(id());
             try {
                 if (service.add(userDto)) {
@@ -91,6 +99,10 @@ public class LoginFromController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtPasswordComfrom.setVisible(false);
+        txtPasswordField.setVisible(false);
+        txtPasswordPField.setVisible(true);
+        imgCloseEye.setVisible(true);
+        imgEye.setVisible(false);
     }
 
     public void txtPasswordOnAction(ActionEvent actionEvent) {
@@ -111,7 +123,7 @@ public class LoginFromController implements Initializable {
         if (service.checkPassword(userDto)) {
             btnCreateAccount.setDisable(false);
             userDto.setUser_name(txtUserName.getText());
-            userDto.setPassword(txtPassword.getText());
+            userDto.setPassword(txtPasswordPField.getText());
             userDto.setUser_id(id());
             try {
                 if (service.add(userDto)) {
@@ -125,5 +137,28 @@ public class LoginFromController implements Initializable {
         } else {
             new Alert(Alert.AlertType.WARNING, " wrong password ... ! ").show();
         }
+    }
+
+    String VOTxt;
+
+    public void loginMouseClickEyeOpen(MouseEvent mouseEvent) {
+        VOTxt=txtPasswordField.getText();
+        System.out.println("1  : "+txtPasswordPField.getText());
+        System.out.println(VOTxt);
+        txtPasswordPField.setVisible(false);
+        txtPasswordField.setVisible(true);
+        imgCloseEye.setVisible(true);
+        imgEye.setVisible(false);
+        txtPasswordPField.setText(VOTxt);
+    }
+
+    public void loginMouseClickEyeClose(MouseEvent mouseEvent) {
+        VOTxt=txtPasswordPField.getText();
+        System.out.println(VOTxt);
+        txtPasswordPField.setVisible(true);
+        txtPasswordField.setVisible(false);
+        imgCloseEye.setVisible(false);
+        imgEye.setVisible(true);
+        txtPasswordField.setText(VOTxt);
     }
 }

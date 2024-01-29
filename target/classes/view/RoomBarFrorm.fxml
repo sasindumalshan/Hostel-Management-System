@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="53.0" prefWidth="1808.0" stylesheets="@../assets/style/from.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.RoomBarFromController">
    <children>
-      <Pane layoutX="6.0" layoutY="3.0" prefHeight="48.0" prefWidth="1760.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" styleClass="glass-grey">
+      <Pane layoutX="6.0" layoutY="3.0" prefHeight="48.0" prefWidth="1760.0" styleClass="bar" stylesheets="@../assets/style/css.css">
          <children>
             <Text fx:id="txtRoomId" layoutX="49.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Rooom ID" />
             <Text fx:id="textMoney" layoutX="390.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Key Money" />

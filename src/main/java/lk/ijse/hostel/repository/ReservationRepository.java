@@ -8,4 +8,10 @@ import java.util.List;
 
 public interface ReservationRepository extends CrudRepository<Reservation,String>{
     List<ReservationIdProjection> getAllIDsByOrders();
+
+    String getAllReservationRoomCount();
+
+    List<ReservationIdProjection> getSearchIds(String id);
+
+    String getCountForId(String id);
 }

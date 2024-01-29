@@ -19,11 +19,11 @@
    <children>
       <Pane layoutX="10.0" layoutY="12.0" prefHeight="210.0" prefWidth="1426.0" styleClass="from-box">
          <children>
-            <JFXTextField fx:id="txtFistName" alignment="CENTER" layoutX="37.0" layoutY="65.0" prefHeight="26.0" prefWidth="255.0" promptText="Fist Name" />
-            <JFXTextField fx:id="txtLastName" alignment="CENTER" layoutX="40.0" layoutY="129.0" prefHeight="26.0" prefWidth="255.0" promptText="Last Name" />
+            <JFXTextField fx:id="txtFistName" alignment="CENTER" layoutX="37.0" layoutY="65.0" onKeyReleased="#fistName" prefHeight="26.0" prefWidth="255.0" promptText="Fist Name" />
+            <JFXTextField fx:id="txtLastName" alignment="CENTER" layoutX="40.0" layoutY="129.0" onKeyReleased="#lastName" prefHeight="26.0" prefWidth="255.0" promptText="Last Name" />
             <Text layoutX="40.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="ADD Student" />
-            <JFXTextField fx:id="txtCity" alignment="CENTER" layoutX="345.0" layoutY="61.0" prefHeight="30.0" prefWidth="233.0" promptText="City" />
-            <JFXButton layoutX="1271.0" layoutY="155.0" onAction="#btnDonOnAction" prefHeight="37.0" prefWidth="141.0" styleClass="bevel-grey" text="DON">
+            <JFXTextField fx:id="txtCity" alignment="CENTER" layoutX="345.0" layoutY="61.0" onKeyReleased="#city" prefHeight="30.0" prefWidth="233.0" promptText="City" />
+            <JFXButton fx:id="btnDone" layoutX="1271.0" layoutY="155.0" onAction="#btnDonOnAction" prefHeight="37.0" prefWidth="141.0" styleClass="bevel-grey" text="DON">
                <graphic>
                   <GridPane prefHeight="30.0" prefWidth="131.0">
                      <columnConstraints>
@@ -52,15 +52,16 @@
                   <Image url="@../assets/image/backGrundImage/icon/icons8-macos-close-90.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="txtStreet" alignment="CENTER" layoutX="345.0" layoutY="127.0" prefHeight="30.0" prefWidth="233.0" promptText="Street" />
-            <JFXTextField fx:id="txtLane" alignment="CENTER" layoutX="609.0" layoutY="61.0" prefHeight="30.0" prefWidth="233.0" promptText="Lene" />
-            <JFXTextField fx:id="txtContact" alignment="CENTER" layoutX="862.0" layoutY="63.0" prefHeight="30.0" prefWidth="233.0" promptText="Contact" />
+            <JFXTextField fx:id="txtStreet" alignment="CENTER" layoutX="345.0" layoutY="127.0" onKeyReleased="#streeet" prefHeight="30.0" prefWidth="233.0" promptText="Street" />
+            <JFXTextField fx:id="txtLane" alignment="CENTER" layoutX="609.0" layoutY="61.0" onKeyReleased="#lane" prefHeight="30.0" prefWidth="233.0" promptText="Lene" />
+            <JFXTextField fx:id="txtContact" alignment="CENTER" layoutX="862.0" layoutY="63.0" onKeyReleased="#contact" prefHeight="30.0" prefWidth="233.0" promptText="Contact" />
             <JFXComboBox fx:id="cmbGender" layoutX="1176.0" layoutY="64.0" prefHeight="28.0" prefWidth="190.0" promptText="Gendder" />
             <DatePicker fx:id="dpBirthDay" layoutX="1181.0" layoutY="116.0" />
          </children>
          <stylesheets>
             <URL value="@../assets/style/AddFrom.css" />
             <URL value="@../assets/style/DashBord.css" />
+            <URL value="@../assets/style/css.css" />
          </stylesheets>
       </Pane>
    </children>

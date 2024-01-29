@@ -14,9 +14,9 @@
 
 <AnchorPane prefHeight="53.0" prefWidth="1808.0" stylesheets="@../assets/style/from.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.StudentBarFromController">
    <children>
-      <Pane layoutX="6.0" layoutY="3.0" prefHeight="48.0" prefWidth="1760.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" styleClass="glass-grey">
+      <Pane layoutX="6.0" layoutY="3.0" prefHeight="48.0" prefWidth="1760.0" styleClass="bar" stylesheets="@../assets/style/css.css">
          <children>
-            <JFXButton fx:id="btnRemove" layoutX="1611.0" layoutY="6.0" minWidth="46.0" onAction="#btnRemoveOnAction" prefHeight="36.0" prefWidth="46.0" text=" ">
+            <JFXButton fx:id="btnRemove" layoutX="1611.0" layoutY="6.0" minWidth="46.0" onAction="#btnRemoveOnAction" prefHeight="36.0" prefWidth="46.0" style="-fx-background-color: white;" text=" ">
                <graphic>
                   <GridPane prefHeight="29.0" prefWidth="22.0">
                     <columnConstraints>

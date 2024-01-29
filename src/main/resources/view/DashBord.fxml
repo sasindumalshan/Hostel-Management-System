@@ -91,26 +91,17 @@
                </graphic>
             </JFXButton>
             <Text fill="#3c3d3f" layoutX="628.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Resuvation Details" />
-            <Text fill="#3c3d3f" layoutX="1728.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Time-txt" text="22" />
-            <Text fill="#3c3d3f" layoutX="1730.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Time-txt" text="19" />
-            <Text fill="#3c3d3f" layoutX="1697.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Thu,30 March" />
+            <Text fx:id="txtHour" fill="#3c3d3f" layoutX="1728.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Time-txt" text="22" />
+            <Text fx:id="txtMini" fill="#3c3d3f" layoutX="1730.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Time-txt" text="19" />
+            <Text fx:id="txtDate" fill="#3c3d3f" layoutX="1697.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Thu,30 March" />
             <Text fill="#64779e" layoutX="1778.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Admin" />
             <Circle fill="#1fff83" layoutX="1749.0" layoutY="368.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
             <Text fill="#3c3d3f" layoutX="990.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="All Rooms" />
             <Text fill="#3c3d3f" layoutX="990.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="All Employee" />
             <Text fill="#3c3d3f" layoutX="1238.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Reseued Rooms" wrappingWidth="100.181640625" />
-            <Text fill="#3c3d3f" layoutX="1242.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-txt" text="Free" wrappingWidth="17.255848288536072" />
-            <Text fill="#3c3d3f" layoutX="1424.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
-            <Text fill="#3c3d3f" layoutX="1288.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="Non-AC " />
-            <Text fill="#3c3d3f" layoutX="1290.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="Non-AC / Food " />
-            <Text fill="#3c3d3f" layoutX="1288.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="AC " />
-            <Text fill="#3c3d3f" layoutX="1290.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="AC / Food" />
-            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
-            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
-            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
-            <Text fill="#3c3d3f" layoutX="1457.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="22" />
-            <Text fill="#3c3d3f" layoutX="1022.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
-            <Text fill="#3c3d3f" layoutX="1022.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
+            <Text fx:id="txtReusedRoom" fill="#3c3d3f" layoutX="1424.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
+            <Text fx:id="txtAllRooms" fill="#3c3d3f" layoutX="1022.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
+            <Text fx:id="txtAllEmployees" fill="#3c3d3f" layoutX="1022.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="detail" text="22" />
             <Line endX="61.66668701171875" endY="-39.7255859375" layoutX="937.0" layoutY="165.0" startX="61.66668701171875" startY="3.0" strokeWidth="2.0" />
             <Line endX="73.66668701171875" endY="-5.66668701171875" layoutX="947.0" layoutY="175.0" startX="52.66668701171875" startY="-6.0" strokeWidth="2.0" />
             <Line endX="61.66668701171875" endY="-39.7255859375" layoutX="937.0" layoutY="300.0" startX="61.66668701171875" startY="3.0" strokeWidth="2.0" />

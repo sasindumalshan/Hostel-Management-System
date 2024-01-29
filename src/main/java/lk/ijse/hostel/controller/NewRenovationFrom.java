@@ -3,7 +3,9 @@ package lk.ijse.hostel.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -22,6 +24,7 @@ import lk.ijse.hostel.service.impl.StudentServiceImpl;
 import lk.ijse.hostel.util.DateTimeUtil;
 import lk.ijse.hostel.util.Navigation;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,8 +47,31 @@ public class NewRenovationFrom implements Initializable {
     StudentDto studentDto;
     private static String res_id;
     ReservationService reservationService;
+    int roomCount;
+    int resCount;
+
+    private void loadResCount() {
+        reservationService=ReservationServiceImpl.getInstance();
+        String count= reservationService.getCountForId((String)txtRoomType.getValue());
+        resCount=Integer.parseInt(count);
+    }
 
     public void addOnAction(ActionEvent actionEvent) {
+        System.out.println("addOnAction  ");
+
+
+
+        roomService=RoomServiceImpl.getInstance();
+        String allRoomCount = roomService.getAllRoomCount();
+        roomCount=Integer.parseInt(allRoomCount);
+        int processCount=roomCount-resCount;
+        System.out.println(processCount);
+        System.out.println("roomCount "+roomCount);
+        System.out.println("resCount "+resCount);
+        System.out.println("Process Count Check "+(processCount<=0));
+
+        System.out.println("Process Count Check IF");
+        resCount++;
         studentDto = studentService.get((String) cmbStudentId.getValue());
         reservationDto = new ReservationDto();
         reservationDto.setDate(LocalDate.parse(DateTimeUtil.getDateNow()));
@@ -58,6 +84,43 @@ public class NewRenovationFrom implements Initializable {
         list.add(reservationDto);
         System.out.println(list.size());
 
+        loadBar(reservationDto);
+
+
+       if (processCount<=0){
+//           System.out.println("Process Count Check IF");
+//           resCount++;
+//           studentDto = studentService.get((String) cmbStudentId.getValue());
+//           reservationDto = new ReservationDto();
+//           reservationDto.setDate(LocalDate.parse(DateTimeUtil.getDateNow()));
+//           reservationDto.setStudent(studentDto.toEntity());
+//           reservationDto.setRoom(roomService.get((String) txtRoomType.getValue()));
+//           reservationDto.setStatus(getStatus());
+//           reservationDto.setRes_id(getNextId());
+//           System.out.println(reservationDto.getStatus());
+//           System.out.println(reservationDto.getRes_id());
+//           list.add(reservationDto);
+//           System.out.println(list.size());
+//
+//           loadBar(reservationDto);
+
+       }else {
+           System.out.println("Process Count Check ELSE");
+           new Alert(Alert.AlertType.WARNING,"Something Wong").show();
+       }
+
+    }
+
+    private void loadBar(ReservationDto reservationDto) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AddResvationBarForm.fxml"));
+            Parent root = loader.load();
+            AddReservationBarFormController controller = loader.getController();
+            controller.setData(reservationDto);
+            vbox.getChildren().add(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private String getNextId() {
@@ -141,7 +204,10 @@ public class NewRenovationFrom implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setAllIdsStudent();
         setAllRoomType();
+        loadResCount();
     }
+
+
 
     private void setAllRoomType() {
         roomService = RoomServiceImpl.getInstance();

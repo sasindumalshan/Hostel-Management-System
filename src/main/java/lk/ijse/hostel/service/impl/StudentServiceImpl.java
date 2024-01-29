@@ -90,7 +90,7 @@ public class StudentServiceImpl implements StudentService {
             return studentDto;
         } catch (Exception e) {
             System.out.println(e);
-            transaction.rollback();
+//            transaction.rollback();
             return null;
         } finally {
             session.close();
@@ -127,6 +127,35 @@ public class StudentServiceImpl implements StudentService {
             transaction.rollback();
             return false;
         } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public String getAllStudentCount() {
+        session=FactoryConfiguration.getInstance().getSession();
+        studentRepository.setSession(session);
+        try {
+          return   studentRepository.getAllStudentCount();
+        }catch (Exception e){
+            return null;
+        }finally {
+            session.close();
+        }
+
+    }
+
+    @Override
+    public List<StudentIdProjection> getSearchData(String id) {
+        session=FactoryConfiguration.getInstance().getSession();
+        studentRepository.setSession(session);
+        try {
+          List<StudentIdProjection> ids= studentRepository.getSearchIds(id);
+          return ids;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }finally {
             session.close();
         }
     }

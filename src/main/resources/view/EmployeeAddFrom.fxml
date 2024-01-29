@@ -17,10 +17,10 @@
    <children>
       <Pane layoutX="10.0" layoutY="12.0" prefHeight="210.0" prefWidth="648.0" styleClass="from-box">
          <children>
-            <JFXTextField fx:id="txtRoomType" alignment="CENTER" layoutX="37.0" layoutY="65.0" prefHeight="26.0" prefWidth="255.0" promptText="Room Type" />
-            <JFXTextField fx:id="txtQTY" alignment="CENTER" layoutX="40.0" layoutY="129.0" prefHeight="26.0" prefWidth="255.0" promptText="QTY" />
+            <JFXTextField fx:id="txtRoomType" alignment="CENTER" layoutX="37.0" layoutY="65.0" onKeyReleased="#roomType" prefHeight="26.0" prefWidth="255.0" promptText="Room Type" />
+            <JFXTextField fx:id="txtQTY" alignment="CENTER" layoutX="40.0" layoutY="129.0" onKeyReleased="#qty" prefHeight="26.0" prefWidth="255.0" promptText="QTY" />
             <Text layoutX="40.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="room-details" text="Add Rooms" />
-            <JFXTextField fx:id="txtPrice" alignment="CENTER" layoutX="373.0" layoutY="61.0" prefHeight="30.0" prefWidth="210.0" promptText="Price" />
+            <JFXTextField fx:id="txtPrice" alignment="CENTER" layoutX="373.0" layoutY="61.0" onKeyReleased="#price" prefHeight="30.0" prefWidth="210.0" promptText="Price" />
             <JFXButton layoutX="468.0" layoutY="138.0" onAction="#btnDonOnAction" prefHeight="37.0" prefWidth="141.0" styleClass="bevel-grey" text="DON">
                <graphic>
                   <GridPane prefHeight="30.0" prefWidth="131.0">
@@ -54,6 +54,7 @@
          <stylesheets>
             <URL value="@../assets/style/AddFrom.css" />
             <URL value="@../assets/style/DashBord.css" />
+            <URL value="@../assets/style/css.css" />
          </stylesheets>
       </Pane>
    </children>

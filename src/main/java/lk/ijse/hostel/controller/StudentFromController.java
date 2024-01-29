@@ -1,11 +1,14 @@
 package lk.ijse.hostel.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import lk.ijse.hostel.dto.StudentDto;
 import lk.ijse.hostel.projection.StudentIdProjection;
 import lk.ijse.hostel.service.StudentService;
@@ -22,6 +25,8 @@ public class StudentFromController implements Initializable {
 
     private static StudentFromController controller;
     public VBox vbox;
+    public JFXTextField txtSearch;
+    public Text txtAllStudent;
 
     public StudentFromController() {
         controller=this;
@@ -42,6 +47,12 @@ public class StudentFromController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllIdForTable();
+        setStudentCount();
+    }
+
+    private void setStudentCount() {
+        service=StudentServiceImpl.getInstants();
+        txtAllStudent.setText(service.getAllStudentCount());
     }
 
     public void loadAllIdForTable() {
@@ -65,6 +76,23 @@ public class StudentFromController implements Initializable {
             vbox.getChildren().add(root);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void backOnAction(ActionEvent actionEvent) {
+        try {
+            Navigation.switchNavigation("DashBord.fxml",actionEvent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void StudentOnKeyReleased(KeyEvent keyEvent) {
+        vbox.getChildren().clear();
+        service=StudentServiceImpl.getInstants();
+      List<StudentIdProjection> ids= service.getSearchData(txtSearch.getText());
+        for (int i = 0; i < ids.size(); i++) {
+            loadDataTable(ids.get(i));
         }
     }
 }
